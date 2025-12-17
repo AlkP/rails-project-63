@@ -3,7 +3,6 @@
 require_relative "lib/hexlet_code/version"
 
 Gem::Specification.new do |spec|
-
   spec.summary = "My simple form generator"
   spec.description = "My simple form generator is like Simple Form, but easier"
   spec.homepage = "https://github.com/AlkP/rails-project-63"
