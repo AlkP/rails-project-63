@@ -5,12 +5,8 @@ module HexletCode
     # Represents Div class for tags
     class Div < Base
       class << self
-        def build(options = {}, &block)
-          [
-            "<#{tag}#{options.map { |k, v| " #{k}=\"#{v}\"" }.join}>",
-            block ? yield : nil,
-            "</#{tag}>"
-          ].join
+        def closing
+          true
         end
       end
     end

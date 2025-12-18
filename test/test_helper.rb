@@ -10,5 +10,8 @@ require_relative "../lib/hexlet_code/tags/div"
 require_relative "../lib/hexlet_code/tags/img"
 require_relative "../lib/hexlet_code/tags/label"
 require_relative "../lib/hexlet_code/tags/form"
+require_relative "../lib/hexlet_code/tags/forms/input"
+require_relative "../lib/hexlet_code/tags/forms/text"
 
 require "minitest/autorun"
+require "byebug"

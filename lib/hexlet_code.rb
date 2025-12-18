@@ -17,7 +17,7 @@ module HexletCode
     end
   end
 
-  def self.form_for(_name, options = {}, &block)
-    ::HexletCode::Tag.build(:form, options, &block)
+  def self.form_for(object, options = {}, &block)
+    ::HexletCode::Tags::Form.build(object, options, &block)
   end
 end
