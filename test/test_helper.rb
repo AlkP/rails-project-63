@@ -9,5 +9,6 @@ require_relative "../lib/hexlet_code/tags/br"
 require_relative "../lib/hexlet_code/tags/div"
 require_relative "../lib/hexlet_code/tags/img"
 require_relative "../lib/hexlet_code/tags/label"
+require_relative "../lib/hexlet_code/tags/form"
 
 require "minitest/autorun"

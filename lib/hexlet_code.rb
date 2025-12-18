@@ -3,6 +3,7 @@
 files = Dir["hexlet_code/**/*.rb"]
 files.sort_by { |path| [path.split("/").size, path] }.each { |file| require_relative file }
 
+# Represents HexletCode class for tags
 module HexletCode
   class Error < StandardError; end
 
@@ -14,5 +15,9 @@ module HexletCode
         clazz.build(options, &block)
       end
     end
+  end
+
+  def self.form_for(_name, options = {}, &block)
+    ::HexletCode::Tag.build(:form, options, &block)
   end
 end

@@ -9,9 +9,13 @@ module HexletCode
           @tag ||= name.split("::").last.downcase
         end
 
+        def default_options
+          {}
+        end
+
         def build(options = {}, &block)
           [
-            "<#{tag}#{options.map { |k, v| " #{k}=\"#{v}\"" }.join}>",
+            "<#{tag}#{default_options.merge(options).map { |k, v| " #{k}=\"#{v}\"" }.join}>",
             block ? yield : nil,
             block ? "</#{tag}>" : nil
           ].join
