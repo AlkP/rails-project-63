@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module HexletCode
-  module Tag
-    class Label < Base
+  module Tags
+    class Br < Base
     end
   end
 end

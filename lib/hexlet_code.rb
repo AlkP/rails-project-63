@@ -10,7 +10,7 @@ module HexletCode
   class Tag
     class << self
       def build(name, options = {}, &block)
-        clazz = Object.const_get("HexletCode::Tag::#{name.capitalize}")
+        clazz = Object.const_get("HexletCode::Tags::#{name.capitalize}")
         clazz.build(options, &block)
       end
     end

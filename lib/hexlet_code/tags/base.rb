@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module HexletCode
-  module Tag
+  module Tags
     # Represents base class for tags
     class Base
       class << self

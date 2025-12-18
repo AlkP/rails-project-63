@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module HexletCode
-  module Tag
+  module Tags
     class Img < Base
     end
   end

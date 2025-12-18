@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module HexletCode
-  module Tag
+  module Tags
     # Represents Div class for tags
     class Div < Base
       def build(options = {}, &block)

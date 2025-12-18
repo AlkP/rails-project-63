@@ -1,0 +1,27 @@
+name: Lint
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout репозитория
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Установить Ruby
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2.2'
+          bundler-cache: true
+
+      # 3. Запустить RuboCop
+      - name: Run RuboCop
+        run: bundle exec rubocop
