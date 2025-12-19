@@ -5,5 +5,8 @@
 пример использования
 
       HexletCode.form_for user, url: '#' do |f|
+        f.input :name
         f.input :job, as: :text, rows: 50, cols: 50
+
+        f.submit "Wow"
       end

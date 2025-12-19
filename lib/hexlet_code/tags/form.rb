@@ -17,10 +17,16 @@ module HexletCode
         #
         value = @object.respond_to?(name) ? @object.send(name) : nil
         type = options[:as] || :input
+        label = HexletCode::Tags::Label.build({ name: name }) { name.capitalize }
         clazz = Object.const_get("HexletCode::Tags::Forms::#{type.capitalize}")
         field = clazz.build(options) { value }
 
+        @fields << label
         @fields << field
+      end
+
+      def submit(value = "Save")
+        @fields << HexletCode::Tags::Forms::Input.build({ type: "submit", value: value })
       end
 
       class << self

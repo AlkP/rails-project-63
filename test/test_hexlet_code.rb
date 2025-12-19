@@ -36,9 +36,9 @@ class TestHexletCode < Minitest::Test
         f.input :job, as: :text
       end
 
-    assert_string = "<form method=\"post\" class=\"hexlet-form\" action=\"#\"><input type=\"text\" " \
-                    "class=\"user-input\" value=\"rob\"><textarea cols=\"20\" rows=\"40\" " \
-                    "as=\"text\">hexlet</textarea></form>"
+    assert_string = "<form method=\"post\" class=\"hexlet-form\" action=\"#\"><label name=\"name\">Name</label>" \
+                    "<input type=\"text\" class=\"user-input\" value=\"rob\"><label name=\"job\">Job</label>" \
+                    "<textarea cols=\"20\" rows=\"40\" as=\"text\">hexlet</textarea></form>"
     assert result == assert_string
   end
 
@@ -49,12 +49,12 @@ class TestHexletCode < Minitest::Test
         f.input :job, as: :text, rows: 50, cols: 50
       end
 
-    assert_string = "<form method=\"post\" action=\"#\"><textarea cols=\"50\" rows=\"50\" " \
-                    "as=\"text\">hexlet</textarea></form>"
+    assert_string = "<form method=\"post\" action=\"#\"><label name=\"job\">Job</label><textarea cols=\"50\" " \
+                    "rows=\"50\" as=\"text\">hexlet</textarea></form>"
     assert result == assert_string
   end
 
-  def test_for_form_for_err_age
+  def test_for_form_for_err_age # rubocop:disable Metrics/MethodLength
     user = User.new name: "rob", job: "hexlet", gender: "m"
     result =
       HexletCode.form_for user, url: "#" do |f|
@@ -64,8 +64,38 @@ class TestHexletCode < Minitest::Test
         f.input :age
       end
 
-    assert_string = "<form method=\"post\" action=\"#\"><input type=\"text\" value=\"rob\"><textarea cols=\"20\" " \
-                    "rows=\"40\" as=\"text\">hexlet</textarea><input type=\"text\" value=\"\"></form>"
+    assert_string = "<form method=\"post\" action=\"#\"><label name=\"name\">Name</label><input type=\"text\" " \
+                    "value=\"rob\"><label name=\"job\">Job</label><textarea cols=\"20\" rows=\"40\" " \
+                    "as=\"text\">hexlet</textarea><label name=\"age\">Age</label><input type=\"text\" " \
+                    "value=\"\"></form>"
+    assert result == assert_string
+  end
+
+  def test_for_form_for_submit_default
+    user = User.new name: "rob", job: "hexlet", gender: "m"
+    result =
+      HexletCode.form_for user, url: "#" do |f|
+        f.input :name
+
+        f.submit
+      end
+
+    assert_string = "<form method=\"post\" action=\"#\"><label name=\"name\">Name</label><input type=\"text\" " \
+                    "value=\"rob\"><input type=\"submit\" value=\"Save\"></form>"
+    assert result == assert_string
+  end
+
+  def test_for_form_for_submit
+    user = User.new name: "rob", job: "hexlet", gender: "m"
+    result =
+      HexletCode.form_for user, url: "#" do |f|
+        f.input :name
+
+        f.submit "Wow"
+      end
+
+    assert_string = "<form method=\"post\" action=\"#\"><label name=\"name\">Name</label><input type=\"text\" " \
+                    "value=\"rob\"><input type=\"submit\" value=\"Wow\"></form>"
     assert result == assert_string
   end
 end
