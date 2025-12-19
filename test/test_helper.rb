@@ -14,4 +14,3 @@ require_relative "../lib/hexlet_code/tags/forms/input"
 require_relative "../lib/hexlet_code/tags/forms/text"
 
 require "minitest/autorun"
-require "byebug"

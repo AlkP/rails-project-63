@@ -1,7 +1,18 @@
 # frozen_string_literal: true
 
-files = Dir["hexlet_code/**/*.rb"]
-files.sort_by { |path| [path.split("/").size, path] }.each { |file| require_relative file }
+# require "zeitwerk"
+# loader = Zeitwerk::Loader.new
+# loader.push_dir(File.expand_path("hexlet_code", __dir__))
+# loader.setup
+
+require_relative "../lib/hexlet_code/tags/base"
+require_relative "../lib/hexlet_code/tags/br"
+require_relative "../lib/hexlet_code/tags/div"
+require_relative "../lib/hexlet_code/tags/img"
+require_relative "../lib/hexlet_code/tags/label"
+require_relative "../lib/hexlet_code/tags/form"
+require_relative "../lib/hexlet_code/tags/forms/input"
+require_relative "../lib/hexlet_code/tags/forms/text"
 
 # Represents HexletCode class for tags
 module HexletCode

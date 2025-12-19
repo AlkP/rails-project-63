@@ -21,4 +21,4 @@ jobs:
           bundler-cache: true
 
       - name: Run Minitest
-        run: bundle exec ruby -Itest test/**/test_hexlet_*.rb
+        run: bundle exec ruby -Itest test/test_hexlet_code.rb

@@ -40,7 +40,6 @@ module HexletCode
 
         def build(object, options = {}, &block)
           obj = Form.new(object)
-          # byebug
           [
             "<#{tag}#{prepared_attrs(options.merge(action: options[:url] || "#").except(:url))}>",
             block ? (yield obj) : nil,
