@@ -19,7 +19,7 @@ module HexletCode
         type = options[:as] || :input
         label = HexletCode::Tags::Label.build({ name: name }) { name.capitalize }
         clazz = Object.const_get("HexletCode::Tags::Forms::#{type.capitalize}")
-        field = clazz.build(options) { value }
+        field = clazz.build(options.except(:as)) { value }
 
         @fields << label
         @fields << field

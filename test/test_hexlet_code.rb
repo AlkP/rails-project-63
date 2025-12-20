@@ -38,7 +38,7 @@ class TestHexletCode < Minitest::Test
 
     assert_string = "<form method=\"post\" class=\"hexlet-form\" action=\"#\"><label name=\"name\">Name</label>" \
                     "<input type=\"text\" class=\"user-input\" value=\"rob\"><label name=\"job\">Job</label>" \
-                    "<textarea cols=\"20\" rows=\"40\" as=\"text\">hexlet</textarea></form>"
+                    "<textarea cols=\"20\" rows=\"40\">hexlet</textarea></form>"
     assert result == assert_string
   end
 
@@ -50,7 +50,7 @@ class TestHexletCode < Minitest::Test
       end
 
     assert_string = "<form method=\"post\" action=\"#\"><label name=\"job\">Job</label><textarea cols=\"50\" " \
-                    "rows=\"50\" as=\"text\">hexlet</textarea></form>"
+                    "rows=\"50\">hexlet</textarea></form>"
     assert result == assert_string
   end
 
@@ -65,9 +65,8 @@ class TestHexletCode < Minitest::Test
       end
 
     assert_string = "<form method=\"post\" action=\"#\"><label name=\"name\">Name</label><input type=\"text\" " \
-                    "value=\"rob\"><label name=\"job\">Job</label><textarea cols=\"20\" rows=\"40\" " \
-                    "as=\"text\">hexlet</textarea><label name=\"age\">Age</label><input type=\"text\" " \
-                    "value=\"\"></form>"
+                    "value=\"rob\"><label name=\"job\">Job</label><textarea cols=\"20\" rows=\"40\">hexlet</textarea>" \
+                    "<label name=\"age\">Age</label><input type=\"text\" value=\"\"></form>"
     assert result == assert_string
   end
 
