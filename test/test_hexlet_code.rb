@@ -36,9 +36,10 @@ class TestHexletCode < Minitest::Test
         f.input :job, as: :text
       end
 
-    assert_string = "<form method=\"post\" class=\"hexlet-form\" action=\"#\"><label name=\"name\">Name</label>" \
-                    "<input type=\"text\" class=\"user-input\" value=\"rob\"><label name=\"job\">Job</label>" \
-                    "<textarea cols=\"20\" rows=\"40\">hexlet</textarea></form>"
+    assert_string = "<form method=\"post\" class=\"hexlet-form\" action=\"#\"><label for=\"name\">Name</label>" \
+                    "<input type=\"text\" class=\"user-input\" name=\"name\" value=\"rob\"><label for=\"job\">Job" \
+                    "</label><textarea cols=\"20\" rows=\"40\" name=\"job\">hexlet</textarea></form>"
+
     assert result == assert_string
   end
 
@@ -49,24 +50,8 @@ class TestHexletCode < Minitest::Test
         f.input :job, as: :text, rows: 50, cols: 50
       end
 
-    assert_string = "<form method=\"post\" action=\"#\"><label name=\"job\">Job</label><textarea cols=\"50\" " \
-                    "rows=\"50\">hexlet</textarea></form>"
-    assert result == assert_string
-  end
-
-  def test_for_form_for_err_age # rubocop:disable Metrics/MethodLength
-    user = User.new name: "rob", job: "hexlet", gender: "m"
-    result =
-      HexletCode.form_for user, url: "#" do |f|
-        f.input :name
-        f.input :job, as: :text
-        # Поля age у пользователя нет
-        f.input :age
-      end
-
-    assert_string = "<form method=\"post\" action=\"#\"><label name=\"name\">Name</label><input type=\"text\" " \
-                    "value=\"rob\"><label name=\"job\">Job</label><textarea cols=\"20\" rows=\"40\">hexlet</textarea>" \
-                    "<label name=\"age\">Age</label><input type=\"text\" value=\"\"></form>"
+    assert_string = "<form method=\"post\" action=\"#\"><label for=\"job\">Job</label><textarea cols=\"50\" " \
+                    "rows=\"50\" name=\"job\">hexlet</textarea></form>"
     assert result == assert_string
   end
 
@@ -79,8 +64,8 @@ class TestHexletCode < Minitest::Test
         f.submit
       end
 
-    assert_string = "<form method=\"post\" action=\"#\"><label name=\"name\">Name</label><input type=\"text\" " \
-                    "value=\"rob\"><input type=\"submit\" value=\"Save\"></form>"
+    assert_string = "<form method=\"post\" action=\"#\"><label for=\"name\">Name</label><input type=\"text\" " \
+                    "name=\"name\" value=\"rob\"><input type=\"submit\" value=\"Save\"></form>"
     assert result == assert_string
   end
 
@@ -93,8 +78,8 @@ class TestHexletCode < Minitest::Test
         f.submit "Wow"
       end
 
-    assert_string = "<form method=\"post\" action=\"#\"><label name=\"name\">Name</label><input type=\"text\" " \
-                    "value=\"rob\"><input type=\"submit\" value=\"Wow\"></form>"
+    assert_string = "<form method=\"post\" action=\"#\"><label for=\"name\">Name</label><input type=\"text\" " \
+                    "name=\"name\" value=\"rob\"><input type=\"submit\" value=\"Wow\"></form>"
     assert result == assert_string
   end
 end

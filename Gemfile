@@ -7,5 +7,7 @@ gemspec
 
 gem "minitest", "~> 5.0"
 gem "rake", "~> 13.0"
+gem "rspec"
+gem "rspec-html-matchers"
 gem "rubocop", "~> 1.21"
 gem "zeitwerk"

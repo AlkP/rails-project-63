@@ -13,13 +13,14 @@ module HexletCode
       def input(name, options = {})
         #
         # Не понял дял чего вызывать ошибку в программе, обабатываю
-        # value = @object.send(name)
+        value = @object.send(name)
         #
-        value = @object.respond_to?(name) ? @object.send(name) : nil
+        # value = @object.respond_to?(name) ? @object.send(name) : nil
+        #
         type = options[:as] || :input
-        label = HexletCode::Tags::Label.build({ name: name }) { name.capitalize }
+        label = HexletCode::Tags::Label.build({ for: name }) { name.capitalize }
         clazz = Object.const_get("HexletCode::Tags::Forms::#{type.capitalize}")
-        field = clazz.build(options.except(:as)) { value }
+        field = clazz.build(options.merge(name: name).except(:as)) { value }
 
         @fields << label
         @fields << field

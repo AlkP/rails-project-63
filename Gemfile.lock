@@ -7,10 +7,15 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.3)
+    diff-lcs (1.6.2)
     json (2.18.0)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     minitest (5.27.0)
+    nokogiri (1.18.10-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.10-x86_64-linux-gnu)
+      racc (~> 1.4)
     parallel (1.27.0)
     parser (3.3.10.0)
       ast (~> 2.4.1)
@@ -20,6 +25,22 @@ GEM
     rainbow (3.1.1)
     rake (13.3.1)
     regexp_parser (2.11.3)
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-html-matchers (0.10.0)
+      nokogiri (~> 1)
+      rspec (>= 3.0.0.a)
+    rspec-mocks (3.13.7)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.6)
     rubocop (1.82.0)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -49,6 +70,8 @@ DEPENDENCIES
   hexlet_code!
   minitest (~> 5.0)
   rake (~> 13.0)
+  rspec
+  rspec-html-matchers
   rubocop (~> 1.21)
   zeitwerk
 
