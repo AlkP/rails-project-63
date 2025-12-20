@@ -5,7 +5,7 @@ module HexletCode
     # Represents Div class for tags
     class Div < Base
       class << self
-        def closing
+        def closing?
           true
         end
       end

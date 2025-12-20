@@ -7,11 +7,11 @@ module HexletCode
       class Text < Base
         class << self
           def tag
-            "textarea"
+            'textarea'
           end
 
           def default_options
-            { cols: "20", rows: "40" }
+            { cols: '20', rows: '40' }
           end
         end
       end

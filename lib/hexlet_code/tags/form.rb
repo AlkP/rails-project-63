@@ -26,23 +26,23 @@ module HexletCode
         @fields << field
       end
 
-      def submit(value = "Save")
-        @fields << HexletCode::Tags::Forms::Input.build({ type: "submit", value: value })
+      def submit(value = 'Save')
+        @fields << HexletCode::Tags::Forms::Input.build({ type: 'submit', value: value })
       end
 
       class << self
-        def closing
+        def closing?
           true
         end
 
         def default_options
-          { method: "post" }
+          { method: 'post' }
         end
 
         def build(object, options = {}, &block)
           obj = Form.new(object)
           [
-            "<#{tag}#{prepared_attrs(options.merge(action: options[:url] || "#").except(:url))}>",
+            "<#{tag}#{prepared_attrs(options.merge(action: options[:url] || '#').except(:url))}>",
             block ? (yield obj) : nil,
             block ? "</#{tag}>" : nil
           ].join

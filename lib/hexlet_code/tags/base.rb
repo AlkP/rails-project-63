@@ -5,12 +5,12 @@ module HexletCode
     # Represents base class for tags
     class Base
       class << self
-        def closing
+        def closing?
           false
         end
 
         def tag
-          @tag ||= name.split("::").last.downcase
+          @tag ||= name.split('::').last.downcase
         end
 
         def default_options
@@ -26,7 +26,7 @@ module HexletCode
           [
             "<#{tag}#{prepared_attrs(options)}>",
             block ? yield : nil,
-            block || closing ? "</#{tag}>" : nil
+            block || closing? ? "</#{tag}>" : nil
           ].join
         end
       end
